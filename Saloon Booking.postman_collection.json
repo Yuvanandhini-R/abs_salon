@@ -1,0 +1,311 @@
+{
+	"info": {
+		"_postman_id": "a5e97761-1aad-4a53-97b9-509e55c501f8",
+		"name": "Saloon Booking",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "32763730"
+	},
+	"item": [
+		{
+			"name": "User Registration",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\"firstName\": \"Admin\",\r\n\"lastName\": \"Admin\",\r\n\"email\": \"Admin@gmail.com\",\r\n\"password\": \"Admin\",\r\n\"username\": \"Admin\",\r\n\"role\": \"Admin\",\r\n\"enabled\": true\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:9091/api/registration",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9091",
+					"path": [
+						"api",
+						"registration"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login and Create Token",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\" : \"Admin\",\r\n    \"password\" : \"Admin\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:9091/api/token",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9091",
+					"path": [
+						"api",
+						"token"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add Category",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJBZG1pbiIsImV4cCI6MTcwNzIzNTE3NywiaWF0IjoxNzA3MjE3MTc3fQ.ic3OFuJUjUDBUIufdAZFQ_2CzLn6GNlXIKzNGyHSFx9uHLvTMd8gnGIs3bLs0hq2Yucv0gzNr2zqLiYvxs_tBw",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\"categoryName\": \"test\",\r\n\"price\": 500\r\n\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:9091/api/addCategory",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9091",
+					"path": [
+						"api",
+						"addCategory"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Category List",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJBZG1pbiIsImV4cCI6MTcwNzIzNTE3NywiaWF0IjoxNzA3MjE3MTc3fQ.ic3OFuJUjUDBUIufdAZFQ_2CzLn6GNlXIKzNGyHSFx9uHLvTMd8gnGIs3bLs0hq2Yucv0gzNr2zqLiYvxs_tBw",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:9091/api/categoryList",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9091",
+					"path": [
+						"api",
+						"categoryList"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Category",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJBZG1pbiIsImV4cCI6MTcwNzIzNTE3NywiaWF0IjoxNzA3MjE3MTc3fQ.ic3OFuJUjUDBUIufdAZFQ_2CzLn6GNlXIKzNGyHSFx9uHLvTMd8gnGIs3bLs0hq2Yucv0gzNr2zqLiYvxs_tBw",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"id\":2,\r\n\"categoryName\": \"bhupi\",\r\n\"price\": 500\r\n\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:9091/api/updateCategory",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9091",
+					"path": [
+						"api",
+						"updateCategory"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Category",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJBZG1pbiIsImV4cCI6MTcwNzIzNTE3NywiaWF0IjoxNzA3MjE3MTc3fQ.ic3OFuJUjUDBUIufdAZFQ_2CzLn6GNlXIKzNGyHSFx9uHLvTMd8gnGIs3bLs0hq2Yucv0gzNr2zqLiYvxs_tBw",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:9091/api/deleteCategory?id=5",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9091",
+					"path": [
+						"api",
+						"deleteCategory"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "5"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Book and apointment",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJBZG1pbiIsImV4cCI6MTcwNzIzNTE3NywiaWF0IjoxNzA3MjE3MTc3fQ.ic3OFuJUjUDBUIufdAZFQ_2CzLn6GNlXIKzNGyHSFx9uHLvTMd8gnGIs3bLs0hq2Yucv0gzNr2zqLiYvxs_tBw",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\"categoryName\": \"test\",\r\n\"bookingDate\": \"06/02/2024\"\r\n\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:9091/api/booking",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9091",
+					"path": [
+						"api",
+						"booking"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Booking List ",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJBZG1pbiIsImV4cCI6MTcwNzIzNTE3NywiaWF0IjoxNzA3MjE3MTc3fQ.ic3OFuJUjUDBUIufdAZFQ_2CzLn6GNlXIKzNGyHSFx9uHLvTMd8gnGIs3bLs0hq2Yucv0gzNr2zqLiYvxs_tBw",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:9091/api/bookingList",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9091",
+					"path": [
+						"api",
+						"bookingList"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:9091/api/bookingList",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJBZG1pbiIsImV4cCI6MTcwNzIzNTE3NywiaWF0IjoxNzA3MjE3MTc3fQ.ic3OFuJUjUDBUIufdAZFQ_2CzLn6GNlXIKzNGyHSFx9uHLvTMd8gnGIs3bLs0hq2Yucv0gzNr2zqLiYvxs_tBw",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:9091/api/bookingList",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9091",
+					"path": [
+						"api",
+						"bookingList"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
